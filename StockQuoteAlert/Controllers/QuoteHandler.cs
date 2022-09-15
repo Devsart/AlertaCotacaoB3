@@ -30,7 +30,6 @@ namespace StockQuoteAlert.Controllers
                 var json = JObject.Parse(jsonString);
                 var result = json["results"];
                 float preco = result[0].Value<float>("regularMarketPrice");
-                Console.WriteLine($@"Preço - {preco}. Limite Sup - {quote.UpperValue}. Limite Inf - {quote.LowerValue}");
                 if (preco >= quote.UpperValue && alertaVendaAtivo == true)
                 {
                     alertaVendaAtivo = false;

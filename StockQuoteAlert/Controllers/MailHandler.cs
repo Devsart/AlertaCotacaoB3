@@ -49,9 +49,10 @@ namespace StockQuoteAlert.Controllers
 
             mail.Body = body;
 
-            Console.WriteLine("Sending email...");
+            Console.WriteLine("Enviando e-mail...");
             smtp.Send(mail);
-            Console.WriteLine("E-mail sent!");
+            Console.WriteLine("E-mail enviado!");
+            Console.WriteLine("Monitorando ativo...");
         }
     }
 

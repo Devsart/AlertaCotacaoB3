@@ -13,7 +13,10 @@ namespace StockQuoteAlert
     {
         static void Main(string[] args)
         {
+            
             Quote quote = VerificaArgs(args);
+
+            Console.WriteLine("Configurando ambiente...");
 
             bool alertaVendaAtivo = true;
             bool alertaCompraAtivo = true;
@@ -30,6 +33,9 @@ namespace StockQuoteAlert
             string API_URL = "https://brapi.dev/api/quote/";
 
             HttpClient client = QuoteHandler.GetClient(API_URL);
+
+            Console.WriteLine("Ambiente configurado!");
+            Console.WriteLine($@"Monitorando ativo {quote.Name}. Preço de Venda: R${quote.UpperValue}. Preço de Compra: R${quote.LowerValue}");
 
             QuoteHandler.VerificaPreco(client, quote, alertaVendaAtivo, alertaCompraAtivo, smtp, mailList, mailFrom);
 
